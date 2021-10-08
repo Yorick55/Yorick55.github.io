@@ -5,7 +5,7 @@ skinparam class {
 	BorderColor Black
 }
 class "Студент" as P {
- Отверртка
+ Отвертка
 Собрать (Комплектующие, Сегодня) -> Компьютер
 }
 hide circle
