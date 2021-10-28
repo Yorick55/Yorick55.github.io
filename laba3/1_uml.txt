@@ -1,0 +1,12 @@
+@startuml
+actor "Администратор" as owner
+boundary "Система учета" as app
+entity "База данных" as data
+actor "Сборщик" as trainee
+owner-> app : Отзывы и данные
+app-> data : Запись заказа
+app-> owner : Сформированный заказ
+owner-> app : Установленные параметры
+app-> data : Запись параметров
+app-> trainee : Параметры сборки
+@enduml
