@@ -1,0 +1,39 @@
+@startuml
+skinparam monochrome true
+hide circle
+hide methods
+left to right direction
+skinparam packageStyle rectangle
+
+actor "Бухгалтер"
+actor "Смарт_контракт" 
+actor "Блокчейн" 
+actor "Web_интерфейс"
+actor "IPFS"
+actor "Пользователь"
+
+Смарт_контракт --> Блокчейн
+
+rectangle Запись_документа_в_блокчейн {
+usecase case1 as "Ввести данные"
+usecase case2 as "Передача данных в смарт-контракт"
+usecase case3 as "Выполнение смарт-контракта"
+usecase case4 as "Обработка транзакции"
+usecase case5 as "Просмотр токена"
+
+
+ Бухгалтер --> Web_интерфейс
+ Web_интерфейс -- case1
+ (case2) .> (case1) : include
+ (case3) .> (case2) : include
+ (case4) .> (case3) : include
+ case2 -- Смарт_контракт 
+ case3 -- Смарт_контракт 
+ case4 -- Смарт_контракт 
+ case2 -- IPFS
+ case3 -- IPFS 
+ case5 -- IPFS
+ case5 --> Пользователь 
+
+}
+@enduml
